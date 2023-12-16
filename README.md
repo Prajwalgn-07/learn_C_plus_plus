@@ -95,5 +95,5 @@ if (!p) {
 - It uses waterfall model, which means that the lower type is converted to the higher type.
 - int->unsigned int->long->unsigned long->long long->unsigned long long->float->double->long double
 ``` 
- int m = 5 + 2.5; // 5 is converted to float
+  m = 5 + 2.75; // 5 is converted to float
 ```
