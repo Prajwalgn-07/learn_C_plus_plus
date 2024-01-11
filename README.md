@@ -8,3 +8,4 @@ This repository contains the revision deatils of the C++ language. and also deta
  3. [Day3](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day3)
  4. [Day4](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day4)
  5. [Day5](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day5)
+ 6. [Day6](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day6)
