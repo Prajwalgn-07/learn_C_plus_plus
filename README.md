@@ -47,3 +47,8 @@ This repository contains the revision deatils of the C++ language. and also deta
     - Associative Containers in C++ STL
     - Derived Containers in C++ STL
     - Iterators in C++ STL
+
+
+## Resources
+- [Object Oriented Programming with C++ by Balguruswamy](https://www.anandinstitute.org/pdf/Balaguruswamy%20Object%20Oriented%20Programming%20With%20C++%20Fourth%20Edition%20(3).pdf)
+- [Geeks for geeks](https://www.geeksforgeeks.org/)
