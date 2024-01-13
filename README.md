@@ -48,6 +48,13 @@ This repository contains the revision deatils of the C++ language. and also deta
     - Derived Containers in C++ STL
     - Iterators in C++ STL
 
+## 8. [Day8](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day8)
+      - String manipulation
+      - New Features of ANSII
+         - auto, new
+         - static_cast,const_cast, dynamic_cast, reinterpret_cast
+      - explicit, namespace, mutable
+
 
 ## Resources
 - [Object Oriented Programming with C++ by Balguruswamy](https://www.anandinstitute.org/pdf/Balaguruswamy%20Object%20Oriented%20Programming%20With%20C++%20Fourth%20Edition%20(3).pdf)
