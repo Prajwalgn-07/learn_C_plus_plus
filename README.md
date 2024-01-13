@@ -158,3 +158,69 @@ int main()
     return 0;
 }
 ```
+
+### Namespace scope
+ #### 1. Namespace Definition
+ ```cpp
+   #include <iostream>
+   using namespace std;
+   
+   namespace myNamespace {
+      int x;
+      int y;
+      void display(int n){
+         cout << "The number is: " << n << endl;
+      }
+   }
+
+   int main(){
+      myNamespace::x = 10;
+      myNamespace::y = 20;
+      myNamespace::display(myNamespace::x);
+      myNamespace::display(myNamespace::y);
+      return 0;
+   }     
+   ```
+   #### 2. Nested Namespaces
+   ```cpp
+   #include <iostream>
+   using namespace std;
+
+   namespace first_space{
+      void func(){
+         cout << "Inside first_space" << endl;
+      }
+      namespace second_space{
+         void func(){
+            cout << "Inside second_space" << endl;
+         }
+      }
+   }
+
+   int main(){
+      // Calls function from first name space.
+      first_space::func();
+      
+      // Calls function from second name space.
+      first_space::second_space::func(); 
+
+      return 0;
+   }
+   ```
+   #### 3. Un named namespace
+   ```cpp
+   #include <iostream>
+   using namespace std;
+
+   // unnamed namespace
+   namespace {
+      void func(){
+         cout << "Inside unnamed namespace" << endl;
+      }
+   }
+
+   int main(){
+      func();
+      return 0;
+   }
+   ```
