@@ -1,49 +1,160 @@
 # learn_c++
 
-This repository contains the revision deatils of the C++ language. and also details of new concepts in C++.
 
-## Table of Contents
- ## 1.  [Day1](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day1)
-    - C++ compilation process
-    - Namespace
-    - Scope resolution operator
-    - Implicit type conversion
+## Manipulating Strings
 
-  
- ## 2. [Day2](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day2)
-    - Call by reference and return by reference
-    - Function overloading and inline function
-    - Creation of class and objects
-    - Access specifiers
-    - Friend Function
-    - Objects as function arguments
+### 1. Commonly used string constructors
+```cpp
+string s1; // s1 is an empty string
+string s2(s1); // s2 is a copy of s1
+string s3("value"); // s3 is a copy of the string literal
+string s4(n, 'c'); // s4 is n copies of the character 'c'
+```
+### 2. Important fucntions supported by string class
+```cpp
+s.empty() // returns true if s is empty
+s.size() // returns the number of characters in s
+s[n] // returns a reference to the char at position n in s
+s1+s2 // returns a string that is the concatenation of s1 and s2
+s1=s2 // assigns s2 to s1
+s1==s2 // returns true if s1 and s2 have the same value
+s1!=s2 // returns true if s1 and s2 have different values
+<, <=, >, >= // lexicographic comparisons
+append()// adds characters to the end of a string
+at() // returns a reference to the character at the given position; throws an out_of_range exception if the position is invalid
+begin() // returns an iterator to the first character in the string
+```
 
+## New Features of ANSII C++
+### 1. auto type specifier
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
- ## 3. [Day3](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day3)
-    - Constructors, Parameterized constructors, Copy constructors
-    - Destructors
-    - Operator overloading
+int main()
+{
+    auto i = 0, *p = &i; // i is int, p is int*
+    auto sz = 0, pi = 3.14; // error: inconsistent types for sz and pi
+    return 0;
+}
+```
+### 2. New Operators
 
- ## 4. [Day4](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day4)
-    - Inheritance
-    - Types of Inheritance
-    - Constructor and Destructor in Inheritance
-    - Virtual Base Class
+#### 2.1. static_cast operator
+- static_cast is used to convert one type to another
+- static_cast can be used to convert an ordinary pointer to a void pointer
+- static_cast can be used to convert a pointer to a base class to a pointer to a derived class
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
- ## 5. [Day5](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day5)
-    - Pointers
-    - Pointer Arithematic
-    - Usage of pointers with string,function,arrays
-    - Virtual Functions and Pure Virtual Functions
+int main()
+{
+    int i = 3.14;
+    int j = static_cast<int>(3.14);
+    void *p = &i;
+    double *dp = static_cast<double*>(p);
+    return 0;
+}
+```
+#### 2.2. const_cast operator
+- const_cast is used to convert a const object to a non-const object
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-## 6. [Day6](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day6)
-    - Class Templates
-    - Function Templates
-    - Non-Type Template
-    - Exception Handling
+using namespace std;
 
-## 7. [Day7](https://github.com/Prajwalgn-07/learn_C_plus_plus/tree/day7)
-    - Sequence Containers in C++ STL
-    - Associative Containers in C++ STL
-    - Derived Containers in C++ STL
-    - Iterators in C++ STL
+int main()
+{
+    const char *pc;
+    char *p = const_cast<char*>(pc);
+    return 0;
+}
+```
+
+#### 2.3. reinterpret_cast operator
+- reinterpret_cast is used to convert a pointer to any other type of pointer
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int *ip;
+    char *pc = reinterpret_cast<char*>(ip);
+    return 0;
+}
+```
+
+#### 2.4. dynamic_cast operator
+- dynamic_cast is used to convert a pointer to a base class to a pointer to a derived class
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    Base *bp = new Derived;
+    Derived *dp = dynamic_cast<Derived*>(bp);
+    return 0;
+}
+```
+
+### 3. Class Implementation
+#### 3.1. explicit keyword in constructor
+- The explicit keyword is used to prevent the compiler from using that constructor for implicit conversions
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+clas ABC{
+   int m;
+   public 
+   explicit ABC(int x) { m = x; }
+};
+
+int main()
+{
+    ABC a = 10; // error: no suitable conversion function from "int" to "ABC" exists
+    ABC b(10); // OK
+    return 0;
+}
+```
+#### 3.2. Mutable keyword
+- The mutable keyword allows a particular data member of const object to be modified
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class ABC{
+   mutable int m;
+   public 
+   ABC(int x) { m = x; }
+   void set(int x) const { m = x; }
+};
+
+int main()
+{
+    const ABC a(10);
+    a.set(20); // OK
+    return 0;
+}
+```
